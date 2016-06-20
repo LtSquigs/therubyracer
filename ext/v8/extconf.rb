@@ -28,7 +28,7 @@ rescue LoadError
 ensure
   warn 'warn warn warn warn warn warn warn warn'
   warn ENV['GEM_HOME']
-  require 'libv8'
+  require '/usr/local/lib/ruby/gems/2.3.0/gems/libv8'
 end
 
 Libv8.configure_makefile
