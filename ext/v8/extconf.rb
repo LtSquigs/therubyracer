@@ -1,4 +1,5 @@
 require 'mkmf'
+require 'bundler/setup'
 
 have_library('pthread')
 have_library('objc') if RUBY_PLATFORM =~ /darwin/
@@ -18,20 +19,9 @@ end
 
 LIBV8_COMPATIBILITY = '~> 3.16.14'
 
-begin
-  require 'rubygems'
-  gem 'libv8', LIBV8_COMPATIBILITY
-rescue Gem::LoadError
-  warn "Warning! Unable to load libv8 #{LIBV8_COMPATIBILITY}."
-rescue LoadError
-  warn "Warning! Could not load rubygems. Please make sure you have libv8 #{LIBV8_COMPATIBILITY} installed."
-ensure
-  warn 'warn warn warn warn warn warn warn warn'
-  warn ENV['GEM_HOME']
-  #require '/usr/local/lib/ruby/gems/2.3.0/gems/libv8-3.16.14.15-x86_64-darwin-14/lib/libv8'
+Bundler.with_clean_evn do
+  pid = Process.spawn('ruby libv8conf.rb')
+  Process.wait pid
 end
-
-warn Libv8::VERSION
-Libv8.configure_makefile
 
 create_makefile('v8/init')
