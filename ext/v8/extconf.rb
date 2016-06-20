@@ -31,7 +31,7 @@ ensure
   require '/usr/local/lib/ruby/gems/2.3.0/gems/libv8-3.16.14.15-x86_64-darwin-14/lib/libv8'
 end
 
-warn Libv8::Version
+warn Libv8::VERSION
 Libv8.configure_makefile
 
 create_makefile('v8/init')
