@@ -1,6 +1,4 @@
 require 'mkmf'
-require 'rubygems'
-require 'bundler/setup'
 
 have_library('pthread')
 have_library('objc') if RUBY_PLATFORM =~ /darwin/
@@ -20,9 +18,7 @@ end
 
 LIBV8_COMPATIBILITY = '~> 3.16.14'
 
-Bundler.with_clean_evn do
-  pid = Process.spawn('ruby libv8conf.rb')
-  Process.wait pid
-end
+pid = Process.spawn('ruby libv8conf.rb')
+Process.wait pid
 
 create_makefile('v8/init')
