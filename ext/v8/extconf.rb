@@ -26,6 +26,7 @@ rescue Gem::LoadError
 rescue LoadError
   warn "Warning! Could not load rubygems. Please make sure you have libv8 #{LIBV8_COMPATIBILITY} installed."
 ensure
+  warn 'warn warn warn warn warn warn warn warn'
   warn ENV['GEM_HOME']
   require 'libv8'
 end
