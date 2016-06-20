@@ -18,7 +18,7 @@ end
 
 LIBV8_COMPATIBILITY = '~> 3.16.14'
 
-require '/usr/local/lib/ruby/gems/2.3.0/gems/libv8-3.16.14.15-x86_64-darwin-14/lib/libv8'
+require '/opt/rubies/2.3.0/lib/ruby/gems/2.3.0/gems/libv8-3.16.14.15-x86_64-linux/lib/libv8'
 
 warn Libv8::VERSION
 
