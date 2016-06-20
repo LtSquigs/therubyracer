@@ -1,4 +1,5 @@
 require 'mkmf'
+require 'rubygems'
 require 'bundler/setup'
 
 have_library('pthread')
