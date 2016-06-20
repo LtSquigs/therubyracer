@@ -20,7 +20,7 @@ LIBV8_COMPATIBILITY = '~> 3.16.14'
 
 warn Dir.getwd
 
-pid = Process.spawn('ruby ext/v8/libv8conf.rb')
+pid = Process.spawn('ruby ./libv8conf.rb')
 Process.wait pid
 
 create_makefile('v8/init')
